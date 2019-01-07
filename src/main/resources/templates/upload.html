@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tessco's CSV Upload</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="jumbo text-center">
+            <img th:src="@{/images/tessco_logo.jpg}" alt="tessco logo" height="275" width="600"/>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div th:if="${hasErrors}">
+                    <p class="alert alert-warning text-center" role="alert" th:text="${filesNotBeingProcessed}">
+                    </p>
+                </div>
+                <div th:if="${noErrors}">
+                    <p class="alert alert-success text-center" role="alert" th:text="${happyPath}">
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data" action="/upload">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <label for="files">Upload</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1">
+                </div>
+                <div class="col-10 text-center">
+                    <input multiple="multiple" type="file" id="files" name="files"/>
+                    <input type="submit" value="Upload Files"/>
+                </div>
+                <div class="col-1">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: Mass Upload Front End Application
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ADMIN
+  servlet:
+    multipart:
+      max-file-size: 20MB
+
+server:
+  port: 15000
+
+management:
+  health:
+    db:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /upload/actuator
+      exposure:
+        include: ['shutdown', 'info', 'health']
+
+

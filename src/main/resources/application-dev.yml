@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    platform: postgres
+    driver-class-name: org.postgresql.Driver
+    username: (removed)
+    password: (removed)
+    url: jdbc:postgresql://(removed):5432/mass_upload?currentSchema=public
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate.show_sql: false
+      hibernate.use_sql_comments: false
+      hibernate.format_sql: false
+      hibernate.type: WARN
+      hibernate.temp.use_jdbc_metadata_defaults: false
